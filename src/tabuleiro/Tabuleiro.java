@@ -1,49 +1,42 @@
 package tabuleiro;
 
 public class Tabuleiro {
+	
+	private int linha;
+	private int coluna;
+	private Peca[][] pecas;
 
-	public Tabuleiro() {
-		imprimirTabuleiro();
+//	public Tabuleiro() {
+//		imprimirTabuleiro();
+//	}
+	
+	public Tabuleiro(int linha, int coluna) {
+		this.linha = linha;
+		this.coluna = coluna;
+		pecas = new Peca[linha][coluna];
+	}		
+
+	public int getLinha() {
+		return linha;
 	}
 
-	private void imprimirTabuleiro() {
-		int linha = 3;
-		for(int i = 1; i <= 5; i++) {
-			if(i % 2 != 0) {
-				System.out.print(linha--);
-			}
-			else {
-				System.out.print(" ");
-			}
-			for(int j = 1; j <=11; j++) {
-				if(i % 2 == 0) {
-					if(j == 4 || j == 8) {
-						System.out.print("+");
-					}
-					else {
-						if(j == 11) {
-							System.out.println("-");
-						}
-						else {
-							System.out.print("-");
-						}
-					}
-				}
-				else {
-					if(j == 4 || j == 8) {
-						System.out.print("|");
-					}
-					else {
-						if(j ==11) {
-							System.out.println(" ");
-						}
-						else {
-							System.out.print(" ");
-						}
-					}
-				}
-			}
-		}
-		System.out.println("  a   b   c");
+	public void setLinha(int linha) {
+		this.linha = linha;
 	}
+
+	public int getColuna() {
+		return coluna;
+	}
+
+	public void setColuna(int coluna) {
+		this.coluna = coluna;
+	}
+
+	public Peca peca(int linha, int coluna) {
+		return pecas[linha][coluna];
+	}
+	
+	public Peca peca(Posicao posicao) {
+		return pecas[posicao.getLinha()][posicao.getColuna()];
+	}	
 }
