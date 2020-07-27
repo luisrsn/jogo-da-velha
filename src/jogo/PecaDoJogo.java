@@ -16,4 +16,8 @@ public class PecaDoJogo extends Peca{
 		return valor;
 	}	
 	
+	@Override
+	public String toString() {
+		return valor.toString();
+	}
 }

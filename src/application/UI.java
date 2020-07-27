@@ -33,8 +33,7 @@ public class UI {
 					if (j % 2 == 0) {
 						System.out.print(" ");
 					} else {
-//						imprimirPeca(pecas[posicaoLinha][posicaoColuna++]);
-						System.out.print("X");
+						imprimirPeca(pecas[posicaoLinha][posicaoColuna++]);
 						if(j == 9) {
 							System.out.println(" ");
 						}

@@ -1,5 +1,6 @@
 package jogo;
 
+import tabuleiro.Posicao;
 import tabuleiro.Tabuleiro;
 
 public class Partida {
@@ -8,6 +9,7 @@ public class Partida {
 	
 	public Partida() {
 		tabuleiro = new Tabuleiro(3, 3);
+		configuracaoInicial();
 	}
 	
 	public PecaDoJogo[][] getPecas() {
@@ -18,5 +20,9 @@ public class Partida {
 			}
 		}
 		return mat;
+	}
+	
+	private void configuracaoInicial() {
+		tabuleiro.colocarPeca(new PecaDoJogo(tabuleiro, Valor.X), new Posicao(2, 1));
 	}
 }
