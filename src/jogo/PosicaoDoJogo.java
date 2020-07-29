@@ -9,7 +9,7 @@ public class PosicaoDoJogo {
 	
 	public PosicaoDoJogo(char coluna, int linha) {
 		if(coluna < 'a' || coluna > 'c' || linha < 1 || linha > 3) {
-			throw new PartidaException("Erro ao informar a posição da peça. Os valores válidos são de a1 até c3");
+			throw new PartidaException("Erro ao informar a posicao da peca. Os valores validos sao de a1 ate c3");
 		}
 		this.coluna = coluna;
 		this.linha = linha;

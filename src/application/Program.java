@@ -1,12 +1,15 @@
 package application;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import jogo.Partida;
+import jogo.PartidaException;
 import jogo.PecaDoJogo;
 import jogo.PosicaoDoJogo;
 import tabuleiro.Posicao;
 import tabuleiro.Tabuleiro;
+import tabuleiro.TabuleiroException;
 
 public class Program {
 
@@ -16,15 +19,30 @@ public class Program {
 		Partida partida = new Partida();
 		
 		while(true) {
-			//UI = User Interface
-			UI.imprimirTabuleiro(partida.getPecas());
-			System.out.println();
-			System.out.print("Informe a peça que deseja jogar (X/O): ");
-			String peca = sc.nextLine();
-			System.out.print("Informe a posição: ");
-			PosicaoDoJogo posicao = UI.lerPosicaoDoJogo(sc);
-			
-			partida.jogada(posicao.getColuna(), posicao.getLinha(), peca);
+			try {
+				//UI = User Interface
+				UI.limparTela();
+				UI.imprimirTabuleiro(partida.getPecas());
+				System.out.println();
+				System.out.print("Informe a peca que deseja jogar (X/O): ");
+				String peca = sc.nextLine();
+				System.out.print("Informe a posicao: ");
+				PosicaoDoJogo posicao = UI.lerPosicaoDoJogo(sc);
+				
+				partida.jogada(posicao.getColuna(), posicao.getLinha(), peca);
+			}
+			catch(PartidaException e) {
+				System.out.println(e.getMessage());
+				sc.nextLine();
+			}
+			catch(InputMismatchException e) {
+				System.out.println(e.getMessage());
+				sc.nextLine();
+			}
+			catch(TabuleiroException e) {
+				System.out.println(e.getMessage());
+				sc.nextLine();
+			}
 		}
 	}
 }

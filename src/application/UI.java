@@ -16,8 +16,13 @@ public class UI {
 			return new PosicaoDoJogo(coluna, linha);
 		}
 		catch (RuntimeException e) {
-			throw new InputMismatchException("Erro ao ler a posição da peça. Valores válidos de a1 até c3");
+			throw new InputMismatchException("Erro ao ler a posicao da peca. Valores validos de a1 ate c3");
 		}
+	}
+	
+	public static void limparTela() {
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
 	}
 
 	public static void imprimirTabuleiro(PecaDoJogo[][] pecas) {

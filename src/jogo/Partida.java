@@ -30,9 +30,9 @@ public class Partida {
 //		lugarDaNovaPeca('a', 3, new PecaDoJogo(tabuleiro, Valor.O));
 //	}
 	
-	public PecaDoJogo jogada(char coluna, int linha, String peca) {
-		PecaDoJogo novaPeca = new PecaDoJogo(tabuleiro, Valor.valueOf(peca));
-		lugarDaNovaPeca(coluna, linha, novaPeca);
-		return novaPeca;
+	public void jogada(char coluna, int linha, String peca) {
+		//PecaDoJogo novaPeca = new PecaDoJogo(tabuleiro, Valor.valueOf(peca));
+		lugarDaNovaPeca(coluna, linha, new PecaDoJogo(tabuleiro, Valor.valueOf(peca)));
+		//return novaPeca;
 	}
 }
