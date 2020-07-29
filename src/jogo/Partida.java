@@ -8,7 +8,7 @@ public class Partida {
 	
 	public Partida() {
 		tabuleiro = new Tabuleiro();
-		configuracaoInicial();
+//		configuracaoInicial();
 	}
 	
 	public PecaDoJogo[][] getPecas() {
@@ -25,8 +25,14 @@ public class Partida {
 		tabuleiro.colocarUmaPeca(peca, new PosicaoDoJogo(coluna, linha).paraAPosicao());
 	}
 	
-	private void configuracaoInicial() {
-		lugarDaNovaPeca('b', 1, new PecaDoJogo(tabuleiro, Valor.X));
-		lugarDaNovaPeca('a', 3, new PecaDoJogo(tabuleiro, Valor.O));
+//	private void configuracaoInicial() {
+//		lugarDaNovaPeca('b', 1, new PecaDoJogo(tabuleiro, Valor.X));
+//		lugarDaNovaPeca('a', 3, new PecaDoJogo(tabuleiro, Valor.O));
+//	}
+	
+	public PecaDoJogo jogada(char coluna, int linha, String peca) {
+		PecaDoJogo novaPeca = new PecaDoJogo(tabuleiro, Valor.valueOf(peca));
+		lugarDaNovaPeca(coluna, linha, novaPeca);
+		return novaPeca;
 	}
 }

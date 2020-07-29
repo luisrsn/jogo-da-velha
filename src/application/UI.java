@@ -1,8 +1,24 @@
 package application;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import jogo.PecaDoJogo;
+import jogo.PosicaoDoJogo;
 
 public class UI {
+	
+	public static PosicaoDoJogo lerPosicaoDoJogo(Scanner sc) {
+		try {
+			String s = sc.nextLine();
+			char coluna = s.charAt(0);
+			int linha = Integer.parseInt(s.substring(1));
+			return new PosicaoDoJogo(coluna, linha);
+		}
+		catch (RuntimeException e) {
+			throw new InputMismatchException("Erro ao ler a posição da peça. Valores válidos de a1 até c3");
+		}
+	}
 
 	public static void imprimirTabuleiro(PecaDoJogo[][] pecas) {
 		int linha = 3;
