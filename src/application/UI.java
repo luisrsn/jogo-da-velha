@@ -24,6 +24,14 @@ public class UI {
 		System.out.print("\033[H\033[2J");
 		System.out.flush();
 	}
+	
+	private static void imprimirPeca(PecaDoJogo peca) {
+		if (peca == null) {
+			System.out.print(" ");
+		} else {
+			System.out.print(peca);
+		}
+	}
 
 	public static void imprimirTabuleiro(PecaDoJogo[][] pecas) {
 		int linha = 3;
@@ -71,13 +79,5 @@ public class UI {
 			}
 		}
 		System.out.println("  a   b   c");
-	}
-
-	private static void imprimirPeca(PecaDoJogo peca) {
-		if (peca == null) {
-			System.out.print(" ");
-		} else {
-			System.out.print(peca);
-		}
 	}
 }
